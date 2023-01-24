@@ -36,27 +36,6 @@ def regs():
     return render_template('registrants.html', registrants=registrants)
 
 
-@app.route('/login')
-def login():
-    return render_template('login.html')
-
-
-@app.route('/logged', methods=['POST'])
-def log():
-    data = db.execute('SELECT * FROM logins')
-    username = request.form.get('username')
-    password = request.form.get('password')
-    found = False
-
-    for u in data:
-        if u["username"] == username and u['password'] == password:
-            found = True
-            break
-    if found:
-        return render_template('logged.html', username=username)
-    else:
-        return render_template('error.html')
-
 
 
 
