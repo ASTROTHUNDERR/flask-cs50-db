@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <ul>
+        {% for registrants in registrants %}
+            <li>{{ registrants.name }} is registered for {{ registrants.sport }}</li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
